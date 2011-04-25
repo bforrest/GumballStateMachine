@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Magnum.RulesEngine</name>
+    </assembly>
+    <members>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.ActionNode">
+            <summary>
+            An ActionNode contains an action that should be invoked when the node is activated.
+            
+            This version invokes a simple action that accepts no arguments or only the base RuleContext
+            without a generic specialization on the argument
+            </summary>
+        </member>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.Node">
+            <summary>
+            Base interface supported by every node in the execution model
+            </summary>
+        </member>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.ActionNode`1">
+            <summary>
+            An ActionNode contains an action that should be invoked when the node is activated.
+            
+            This version invokes a simple action that accepts no arguments or only the base RuleContext
+            without a generic specialization on the argument
+            </summary>
+        </member>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.BetaMemory`1">
+            <summary>
+            A transient store of working memory elements
+            
+            Derived from the beta memory concept in RETE
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.RightActivation`1">
+            <summary>
+            Right activation is used to match a node with a right node when doing a join.
+            </summary>
+            <typeparam name="T">The type of object being activated</typeparam>
+        </member>
+        <member name="M:Magnum.RulesEngine.ExecutionModel.RightActivation`1.RightActivate(Magnum.RulesEngine.RuleContext{`0})">
+            <summary>
+            Activates the specified RuleContext to see if a match is present
+            </summary>
+            <param name="context">The context containing the element to match</param>
+            <returns>True if the context should be passed down to the successors</returns>
+        </member>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.CompileExpressionException">
+            <summary>
+            Thrown when an expression is unable to be compiled
+            </summary>
+        </member>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.Agenda">
+            <summary>
+            An agenda is used to schedule actions to be performed as a result of rules and elements being evaluated.
+            </summary>
+        </member>
+        <member name="M:Magnum.RulesEngine.ExecutionModel.Agenda.Add(System.Action)">
+            <summary>
+            Add an action to the agenda using the default priority (0).
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Magnum.RulesEngine.ExecutionModel.Agenda.Add(System.Int32,System.Action)">
+            <summary>
+            Add an action to the agenda using the specified priority.
+            </summary>
+            <param name="priority">The priority of the action</param>
+            <param name="action">The action to execute</param>
+        </member>
+        <member name="M:Magnum.RulesEngine.ExecutionModel.Agenda.Execute">
+            <summary>
+            Executes all pending agenda items in priority order from lowest to highest
+            </summary>
+        </member>
+        <member name="M:Magnum.RulesEngine.ExecutionModel.Agenda.Clear">
+            <summary>
+             Clear the agenda 
+            </summary>
+        </member>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.ConstantNode`1">
+            <summary>
+            A constant node is used to balance out a join node with a positive match,
+            allowing an activation to complete.
+            </summary>
+            <typeparam name="T">The type of the constant true operation</typeparam>
+        </member>
+        <member name="T:Magnum.RulesEngine.RulesEngine">
+            <summary>
+            The interface used to communicate with the rules engine
+            </summary>
+        </member>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.ConditionNode`1">
+            <summary>
+            A generic condition that has a single input type (alpha node)
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Magnum.RulesEngine.StatefulSession">
+            <summary>
+            A session created to assert objects into the rules engine for evaluation. Once all the objects
+            are asserted, the Run method should be called to run all the rules that apply to the objects that
+            are present.
+            </summary>
+        </member>
+        <member name="M:Magnum.RulesEngine.StatefulSession.Assert``1(``0)">
+            <summary>
+            Asserts an object into the session for evaluation by the rules
+            </summary>
+            <typeparam name="T">The implied type of the object being asserted</typeparam>
+            <param name="obj">The object being asserted</param>
+        </member>
+        <member name="M:Magnum.RulesEngine.StatefulSession.Run">
+            <summary>
+            Activates any rules that apply to the objects asserted into the session
+            </summary>
+        </member>
+        <member name="T:Magnum.RulesEngine.ExecutionModel.SessionElementImpl`1">
+            <summary>
+            An object that was added to the working memory
+            </summary>
+            <typeparam name="T">The type of the object being added</typeparam>
+        </member>
+        <member name="P:Magnum.RulesEngine.SemanticModel.ConditionDeclaration.MatchType">
+            <summary>
+            The type to match for this condition
+            </summary>
+        </member>
+        <member name="P:Magnum.RulesEngine.SemanticModel.ConditionDeclaration.Expression">
+            <summary>
+            The expression that is evaluated to determine if this condition is satisfied
+            </summary>
+        </member>
+        <member name="T:Magnum.RulesEngine.SemanticModel.RuleDeclaration">
+            <summary>
+            A rule is defined by a set of conditions and consequences. When all of the conditions are
+            met, all of the consequences are applied.
+            </summary>
+        </member>
+        <member name="P:Magnum.RulesEngine.SemanticModel.RuleDeclaration.Conditions">
+            <summary>
+            The conditions which must be met for the rule to be applied
+            </summary>
+        </member>
+        <member name="P:Magnum.RulesEngine.SemanticModel.RuleDeclaration.Consequences">
+            <summary>
+            The consequences to apply if the rule conditions are all satisfied
+            </summary>
+        </member>
+    </members>
+</doc>
