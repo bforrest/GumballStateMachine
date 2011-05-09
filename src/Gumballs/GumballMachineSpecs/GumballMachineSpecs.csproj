@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="GumballMachineVisualizer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrafficLightVisualizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GumballMachineFeatures.feature">
