@@ -14,11 +14,17 @@ namespace GumballMachineSpecs
         public void I_Want_To_See_The_Machine()
         {
             var machine = new TrafficLightMachine();
+            machine.RaiseEvent(TrafficLightMachine.SwitchedOn);
             var generator = new StateMachineGraphGenerator();
 
-            string filename = Path.Combine(@"C:\Users\Barry Forrest\Documents\Visual Studio 2010\Projects\GumballStateMachine\", string.Format("{0}.png", machine.GetType().Name)); 
+            string directoryPath = @"C:\Users\Barry Forrest\Documents\Visual Studio 2010\Projects\GumballStateMachine\";
+            string filename = Path.Combine(directoryPath, string.Format("{0}.png", machine.GetType().Name)); 
+
             //Path.Combine(Environment.SpecialFolder.ApplicationData.ToString(), "graph.png");
             generator.SaveGraphToFile(machine.GetGraphData(), 2560, 1920, filename);
+            generator.SaveGraphToFile(machine.LightState.GetGraphData(), 2560, 1920, 
+                Path.Combine(directoryPath, string.Format("{0}.png", machine.LightState.GetType().Name))); 
+
         }
 
         [Test]
